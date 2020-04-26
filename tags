@@ -1,0 +1,25 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+bandMatrixVector	a1_q1_matrix_multi.cpp	/^vector<int> bandMatrixVector(const vector<vector<int>>& A, const vector<int>& col, int p, int q){$/;"	f
+finalBanded	a1_q1_matrix_multi.cpp	/^void finalBanded(void){$/;"	f
+finalDense	a1_q1_matrix_multi.cpp	/^void finalDense(void){$/;"	f
+finalSparse	a1_q1_matrix_multi.cpp	/^void finalSparse(void){$/;"	f
+getBandMatrix	a1_q1_matrix_multi.cpp	/^vector<vector<int>> getBandMatrix(const vector<vector<int>>& mat, int p, int q){$/;"	f
+getSparseMatrix	a1_q1_matrix_multi.cpp	/^void getSparseMatrix(const vector<vector<int>>& mat, vector<int>& row,$/;"	f
+main	a1_q1_matrix_multi.cpp	/^int main(){$/;"	f
+matMulBanded	a1_q1_matrix_multi.cpp	/^void matMulBanded(vector<vector<int>>& mat1, vector<vector<int>>& mat2){$/;"	f
+matMulDense	a1_q1_matrix_multi.cpp	/^void matMulDense(vector<vector<int>>& mat1, vector<vector<int>>& mat2){$/;"	f
+mulMatVect	a1_q1_matrix_multi.cpp	/^void mulMatVect(vector<vector<int>>& mat, vector<int>& vect){$/;"	f
+printMatrix	a1_q1_matrix_multi.cpp	/^void printMatrix(vector<vector<int>>& mat){$/;"	f
+printMatrix	naive-LSTM.cpp	/^void printMatrix(vector<vector<int>>& mat){$/;"	f
+printVector	a1_q1_matrix_multi.cpp	/^void printVector(vector<int>& mat){$/;"	f
+printVector	naive-LSTM.cpp	/^void printVector(vector<int>& mat){$/;"	f
+sampBandMatrix	a1_q1_matrix_multi.cpp	/^void sampBandMatrix(vector<vector<int>>& mat, int p, int q, int range){$/;"	f
+sampMatrix	a1_q1_matrix_multi.cpp	/^void sampMatrix(vector<vector<int>>& mat, int range){$/;"	f
+sampSparseMatrix	a1_q1_matrix_multi.cpp	/^void sampSparseMatrix(vector<vector<int>>& mat, int range){$/;"	f
+sampVector	a1_q1_matrix_multi.cpp	/^void sampVector(vector<int>& vec, int range){$/;"	f
+sparseMatrixVector	a1_q1_matrix_multi.cpp	/^void sparseMatrixVector(const vector<int>& row, const vector<int>& col, const $/;"	f
