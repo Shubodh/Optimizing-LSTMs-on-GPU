@@ -11,7 +11,8 @@
 using namespace std;
 
 
-void printMatrix(vector<vector<float>>& mat){
+void printMatrix(vector<vector<float>>& mat)
+{
     for (int i =0; i < mat.size(); ++i){
         for (int j = 0; j < mat[i].size(); ++j){
             cout << mat[i][j] << " ";
@@ -20,21 +21,24 @@ void printMatrix(vector<vector<float>>& mat){
     }
 }
 
-void printVector(vector<float>& mat){
+void printVector(vector<float>& mat)
+{
     for (int i =0; i < mat.size(); ++i){
         cout << mat[i] << " ";
     }
     cout << "\n";
 }
 
-void randVec(vector<float>& vec, int range){
+void randVec(vector<float>& vec, int range)
+{
 	for(int i=0; i<vec.size(); ++i){
 		vec[i] = (rand() % range) + 1;
 	}
 }
 
 
-void randMat(vector<vector<float>>& mat, int range){
+void randMat(vector<vector<float>>& mat, int range)
+{
 	const int rows = mat.size(), cols = mat[0].size();
     int temp;
 	for(int i=0; i<rows; ++i){
@@ -45,7 +49,8 @@ void randMat(vector<vector<float>>& mat, int range){
 	}
 }
 
-vector<vector<float>> matMul(vector<vector<float>>& mat1, vector<vector<float>>& mat2){
+vector<vector<float>> matMul(vector<vector<float>>& mat1, vector<vector<float>>& mat2)
+{
     vector<vector<float>> mat3(mat1.size(), vector<float>(mat2[0].size())) ;
     for (int i =0; i < mat1.size(); ++i){
         for (int j = 0; j < mat2[0].size(); ++j){
@@ -57,7 +62,8 @@ vector<vector<float>> matMul(vector<vector<float>>& mat1, vector<vector<float>>&
     return mat3;
 }
 
-vector<vector<float>> matMulElement(vector<vector<float>>& mat1, vector<vector<float>>& mat2){
+vector<vector<float>> matMulElement(vector<vector<float>>& mat1, vector<vector<float>>& mat2)
+{
     vector<vector<float>> mat3(mat1.size(), vector<float>(mat2[0].size())) ;
     for (int i =0; i < mat1.size(); ++i){
         for (int j = 0; j < mat2[0].size(); ++j){
@@ -68,7 +74,8 @@ vector<vector<float>> matMulElement(vector<vector<float>>& mat1, vector<vector<f
 }
 
 
-vector<vector<float>> matSum(vector<vector<float>>& mat1, vector<vector<float>>& mat2){
+vector<vector<float>> matSum(vector<vector<float>>& mat1, vector<vector<float>>& mat2)
+{
     vector<vector<float>> mat3(mat1.size(), vector<float>(mat2[0].size())) ;
     for (int i =0; i < mat1.size(); ++i){
         for (int j = 0; j < mat2[0].size(); ++j){
@@ -78,7 +85,8 @@ vector<vector<float>> matSum(vector<vector<float>>& mat1, vector<vector<float>>&
     return mat3;
 }
 
-vector<vector<float>> matSigma(vector<vector<float>>& mat1){
+vector<vector<float>> matSigma(vector<vector<float>>& mat1)
+{
     vector<vector<float>> mat2(mat1.size(), vector<float>(mat1[0].size())) ;
     for (int i =0; i < mat1.size(); ++i){
         for (int j = 0; j < mat1[0].size(); ++j){
@@ -88,7 +96,8 @@ vector<vector<float>> matSigma(vector<vector<float>>& mat1){
     return mat2;
 }
 
-vector<vector<float>> matTanh(vector<vector<float>>& mat1){
+vector<vector<float>> matTanh(vector<vector<float>>& mat1)
+{
     vector<vector<float>> mat2(mat1.size(), vector<float>(mat1[0].size())) ;
     for (int i =0; i < mat1.size(); ++i){
         for (int j = 0; j < mat1[0].size(); ++j){
@@ -99,7 +108,8 @@ vector<vector<float>> matTanh(vector<vector<float>>& mat1){
 }
 
 
-vector<float> matVecMul(vector<vector<float>>& mat, vector<float>& vect){
+vector<float> matVecMul(vector<vector<float>>& mat, vector<float>& vect)
+{
     int n = mat.size();
     vector<float> out(mat.size()) ;
     for (int i =0; i < n; ++i){
@@ -110,7 +120,8 @@ vector<float> matVecMul(vector<vector<float>>& mat, vector<float>& vect){
     return out;
 }
 
-vector<vector<float>> productMatDim(int rows_a, int cols_a, int rows_b, int cols_b){
+vector<vector<float>> productMatDim(int rows_a, int cols_a, int rows_b, int cols_b)
+{
     if (cols_a != rows_b){
 		printf("Matrices cannot be multiplied, check dimensions. \n");
 		exit(0);      
@@ -127,7 +138,8 @@ vector<vector<float>> productMatDim(int rows_a, int cols_a, int rows_b, int cols
     return productAB;
 }
 
-vector<vector<float>> matDim(int rows_a, int cols_a){
+vector<vector<float>> matDim(int rows_a, int cols_a)
+{
     vector<vector<float>> A(rows_a, vector<float>(cols_a));
 
 	const int range = 100;
@@ -136,7 +148,8 @@ vector<vector<float>> matDim(int rows_a, int cols_a){
     return A;
 }
 
-vector<vector<float>> sum_Wx_Rh_b(vector<vector<float>> input_t, vector<vector<float>> h_tminus1, int hiddenSize, int miniBatch){
+vector<vector<float>> sum_Wx_Rh_b(vector<vector<float>> input_t, vector<vector<float>> h_tminus1, int hiddenSize, int miniBatch)
+{
 
     vector<vector<float>> W = matDim(hiddenSize, hiddenSize);
     vector<vector<float>> R = matDim(hiddenSize, hiddenSize);
@@ -152,7 +165,8 @@ vector<vector<float>> sum_Wx_Rh_b(vector<vector<float>> input_t, vector<vector<f
 
 }
 
-void nextHiddenState(vector<vector<float>>& input_t, vector<vector<float>>& h_tminus1, vector<vector<float>>& c_tminus1,int hiddenSize, int miniBatch){
+void nextHiddenState(vector<vector<float>>& input_t, vector<vector<float>>& h_tminus1, vector<vector<float>>& c_tminus1,int hiddenSize, int miniBatch)
+{
 //    vector<vector<float>> h_t(h_tminus1.size(), vector<float>(h_tminus1[0].size()));
 //    vector<vector<float>> c_t(c_tminus1.size(), vector<float>(c_tminus1[0].size()));
 
@@ -176,7 +190,8 @@ void nextHiddenState(vector<vector<float>>& input_t, vector<vector<float>>& h_tm
     h_tminus1 = h_t;
 }
 
-double lstmNaive(int hiddenSize, int miniBatch, int seqLength, int numLayers, int numRun) {
+double lstmNaive(int hiddenSize, int miniBatch, int seqLength, int numLayers, int numRun) 
+{
 	struct timeval t1, t2;
 	gettimeofday(&t1, 0);
 
@@ -193,21 +208,38 @@ double lstmNaive(int hiddenSize, int miniBatch, int seqLength, int numLayers, in
 	
     gettimeofday(&t2, 0);
 
-	double time1 = (t2.tv_usec-t1.tv_usec);
-	printf("Time for the run number %d :  %.8f us \n\n", numRun, time1);
+	double elapsedTime = (t2.tv_usec-t1.tv_usec);
+	printf("Time for the run number %d :  %.8f us \n\n", numRun, elapsedTime);
 
-    return time1;
+    return elapsedTime;
 }
 
-// TODO
-//float lstmNaiveEfficient(int hiddenSize, int miniBatch, int seqLength, int numLayers) {
-//    float elapsedTime;
-//    vector<vector<float>> Wx = productMatDim(hiddenSize, hiddenSize, hiddenSize, miniBatch);
-//
-//    return elapsedTime;
-//}
+double lstmNaiveEfficient(int hiddenSize, int miniBatch, int seqLength, int numLayers, int numRun) 
+{
+	struct timeval t1, t2;
+	gettimeofday(&t1, 0);
 
-int main(int argc, char* argv[]){
+    vector<vector<float>> input_t(hiddenSize, vector<float>(miniBatch)), h_tminus1(hiddenSize, vector<float>(miniBatch)), c_tminus1(hiddenSize, vector<float>(miniBatch));
+    //initializing input vector
+	const int range = 100;
+	randMat(input_t, range);
+    //initializing hidden and latent state
+	randMat(h_tminus1, range);
+	randMat(c_tminus1, range);
+    for (int i = 0; i < seqLength; ++i){
+        nextHiddenState(input_t, h_tminus1, c_tminus1, hiddenSize, miniBatch);
+    }
+	
+    gettimeofday(&t2, 0);
+
+	double elapsedTime = (t2.tv_usec-t1.tv_usec);
+	printf("Time for the run number %d :  %.8f us \n\n", numRun, elapsedTime);
+
+    return elapsedTime;
+}
+
+int main(int argc, char* argv[])
+{
 	int seqLength;
 	int numLayers;
 	int hiddenSize;
