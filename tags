@@ -4,22 +4,24 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
-bandMatrixVector	a1_q1_matrix_multi.cpp	/^vector<int> bandMatrixVector(const vector<vector<int>>& A, const vector<int>& col, int p, int q){$/;"	f
-finalBanded	a1_q1_matrix_multi.cpp	/^void finalBanded(void){$/;"	f
-finalDense	a1_q1_matrix_multi.cpp	/^void finalDense(void){$/;"	f
-finalSparse	a1_q1_matrix_multi.cpp	/^void finalSparse(void){$/;"	f
-getBandMatrix	a1_q1_matrix_multi.cpp	/^vector<vector<int>> getBandMatrix(const vector<vector<int>>& mat, int p, int q){$/;"	f
-getSparseMatrix	a1_q1_matrix_multi.cpp	/^void getSparseMatrix(const vector<vector<int>>& mat, vector<int>& row,$/;"	f
-main	a1_q1_matrix_multi.cpp	/^int main(){$/;"	f
-matMulBanded	a1_q1_matrix_multi.cpp	/^void matMulBanded(vector<vector<int>>& mat1, vector<vector<int>>& mat2){$/;"	f
-matMulDense	a1_q1_matrix_multi.cpp	/^void matMulDense(vector<vector<int>>& mat1, vector<vector<int>>& mat2){$/;"	f
-mulMatVect	a1_q1_matrix_multi.cpp	/^void mulMatVect(vector<vector<int>>& mat, vector<int>& vect){$/;"	f
-printMatrix	a1_q1_matrix_multi.cpp	/^void printMatrix(vector<vector<int>>& mat){$/;"	f
-printMatrix	naive-LSTM.cpp	/^void printMatrix(vector<vector<int>>& mat){$/;"	f
-printVector	a1_q1_matrix_multi.cpp	/^void printVector(vector<int>& mat){$/;"	f
-printVector	naive-LSTM.cpp	/^void printVector(vector<int>& mat){$/;"	f
-sampBandMatrix	a1_q1_matrix_multi.cpp	/^void sampBandMatrix(vector<vector<int>>& mat, int p, int q, int range){$/;"	f
-sampMatrix	a1_q1_matrix_multi.cpp	/^void sampMatrix(vector<vector<int>>& mat, int range){$/;"	f
-sampSparseMatrix	a1_q1_matrix_multi.cpp	/^void sampSparseMatrix(vector<vector<int>>& mat, int range){$/;"	f
-sampVector	a1_q1_matrix_multi.cpp	/^void sampVector(vector<int>& vec, int range){$/;"	f
-sparseMatrixVector	a1_q1_matrix_multi.cpp	/^void sparseMatrixVector(const vector<int>& row, const vector<int>& col, const $/;"	f
+extract_ifog	naive-LSTM.cpp	/^void extract_ifog(vector<vector<float>>& ifog, vector<vector<float>>& i, vector<vector<float>>& f, vector<vector<float>>& o, vector<vector<float>>& g)$/;"	f
+lstmNaive	naive-LSTM.cpp	/^double lstmNaive(int hiddenSize, int miniBatch, int seqLength, int numLayers, int numRun) $/;"	f
+lstmNaiveEfficient	naive-LSTM.cpp	/^double lstmNaiveEfficient(int hiddenSize, int miniBatch, int seqLength, int numLayers, int numRun) $/;"	f
+main	naive-LSTM.cpp	/^int main(int argc, char* argv[])$/;"	f
+main	samply.cpp	/^int main(){$/;"	f
+matDim	naive-LSTM.cpp	/^vector<vector<float>> matDim(int rows_a, int cols_a)$/;"	f
+matMul	naive-LSTM.cpp	/^vector<vector<float>> matMul(vector<vector<float>>& mat1, vector<vector<float>>& mat2)$/;"	f
+matMulElement	naive-LSTM.cpp	/^vector<vector<float>> matMulElement(vector<vector<float>>& mat1, vector<vector<float>>& mat2)$/;"	f
+matSigma	naive-LSTM.cpp	/^vector<vector<float>> matSigma(vector<vector<float>>& mat1)$/;"	f
+matSigmaTanh	naive-LSTM.cpp	/^vector<vector<float>> matSigmaTanh(vector<vector<float>>& mat1)$/;"	f
+matSum	naive-LSTM.cpp	/^vector<vector<float>> matSum(vector<vector<float>>& mat1, vector<vector<float>>& mat2)$/;"	f
+matTanh	naive-LSTM.cpp	/^vector<vector<float>> matTanh(vector<vector<float>>& mat1)$/;"	f
+matVecMul	naive-LSTM.cpp	/^vector<float> matVecMul(vector<vector<float>>& mat, vector<float>& vect)$/;"	f
+nextHiddenState	naive-LSTM.cpp	/^void nextHiddenState(vector<vector<float>>& input_t, vector<vector<float>>& h_tminus1, vector<vector<float>>& c_tminus1,int hiddenSize, int miniBatch)$/;"	f
+nextHiddenStateEfficient	naive-LSTM.cpp	/^void nextHiddenStateEfficient(vector<vector<float>>& input_t, vector<vector<float>>& h_tminus1, vector<vector<float>>& c_tminus1,int hiddenSize, int miniBatch)$/;"	f
+printMatrix	naive-LSTM.cpp	/^void printMatrix(vector<vector<float>>& mat)$/;"	f
+printVector	naive-LSTM.cpp	/^void printVector(vector<float>& mat)$/;"	f
+productMatDim	naive-LSTM.cpp	/^vector<vector<float>> productMatDim(int rows_a, int cols_a, int rows_b, int cols_b)$/;"	f
+randMat	naive-LSTM.cpp	/^void randMat(vector<vector<float>>& mat, int range)$/;"	f
+randVec	naive-LSTM.cpp	/^void randVec(vector<float>& vec, int range)$/;"	f
+sum_Wx_Rh_b	naive-LSTM.cpp	/^vector<vector<float>> sum_Wx_Rh_b(vector<vector<float>> input_t, vector<vector<float>> h_tminus1, int hiddenSize, int miniBatch, bool is_efficient)$/;"	f

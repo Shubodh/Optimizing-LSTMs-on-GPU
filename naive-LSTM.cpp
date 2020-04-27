@@ -107,6 +107,25 @@ vector<vector<float>> matTanh(vector<vector<float>>& mat1)
     return mat2;
 }
 
+//activation for naive-efficient function
+vector<vector<float>> matSigmaTanh(vector<vector<float>>& mat1)
+{
+    vector<vector<float>> mat2(mat1.size(), vector<float>(mat1[0].size())) ;
+    for (int i =0; i < 3 * (mat1.size()/4); ++i){
+        for (int j = 0; j < mat1[0].size(); ++j){
+                mat2[i][j] = 1 / (1 + exp(-mat1[i][j]));
+        }
+    }
+    
+    for (int i = 3 * (mat1.size()/4); i < mat1.size(); ++i){
+        for (int j = 0; j < mat1[0].size(); ++j){
+                mat2[i][j] = tanh(mat1[i][j]);
+        }
+    }
+    
+    return mat2;
+}
+
 
 vector<float> matVecMul(vector<vector<float>>& mat, vector<float>& vect)
 {
@@ -148,37 +167,101 @@ vector<vector<float>> matDim(int rows_a, int cols_a)
     return A;
 }
 
-vector<vector<float>> sum_Wx_Rh_b(vector<vector<float>> input_t, vector<vector<float>> h_tminus1, int hiddenSize, int miniBatch)
+vector<vector<float>> sum_Wx_Rh_b(vector<vector<float>> input_t, vector<vector<float>> h_tminus1, int hiddenSize, int miniBatch, bool is_efficient)
 {
+    if (!is_efficient)
+    {
+        vector<vector<float>> W = matDim(hiddenSize, hiddenSize);
+        vector<vector<float>> R = matDim(hiddenSize, hiddenSize);
 
-    vector<vector<float>> W = matDim(hiddenSize, hiddenSize);
-    vector<vector<float>> R = matDim(hiddenSize, hiddenSize);
+        vector<vector<float>> Wx = matMul(W, input_t);
+        vector<vector<float>> Rh = matMul(R, h_tminus1);
+        vector<vector<float>> b = matDim(hiddenSize, miniBatch);
 
-    vector<vector<float>> Wx = matMul(W, input_t);
-    vector<vector<float>> Rh = matMul(R, h_tminus1);
-    vector<vector<float>> b = matDim(hiddenSize, miniBatch);
+        vector<vector<float>> sum1 = matSum(Wx,Rh);
+        vector<vector<float>> sumAll = matSum(sum1, b);
+        return sumAll;
+    }
+    else
+        //W dimension here 2048 X 512 instead of 512 X 512
+    {
+        vector<vector<float>> W = matDim(hiddenSize*4, hiddenSize);
+        vector<vector<float>> R = matDim(hiddenSize*4, hiddenSize);
+        // Wx dimensions will now be 2048 instead of 512
+        vector<vector<float>> Wx = matMul(W, input_t);
+        vector<vector<float>> Rh = matMul(R, h_tminus1);
+        vector<vector<float>> b = matDim(hiddenSize*4, miniBatch);
 
-    vector<vector<float>> sum1 = matSum(Wx,Rh);
-    vector<vector<float>> sumAll = matSum(sum1, b);
+        vector<vector<float>> sum1 = matSum(Wx,Rh);
+        vector<vector<float>> sumAll = matSum(sum1, b);
+        return sumAll;
+    }
 
-    return sumAll;
+
 
 }
 
 void nextHiddenState(vector<vector<float>>& input_t, vector<vector<float>>& h_tminus1, vector<vector<float>>& c_tminus1,int hiddenSize, int miniBatch)
 {
-//    vector<vector<float>> h_t(h_tminus1.size(), vector<float>(h_tminus1[0].size()));
-//    vector<vector<float>> c_t(c_tminus1.size(), vector<float>(c_tminus1[0].size()));
-
-    vector<vector<float>> i_t_linear = sum_Wx_Rh_b(input_t, h_tminus1, hiddenSize, miniBatch);
-    vector<vector<float>> f_t_linear = sum_Wx_Rh_b(input_t, h_tminus1, hiddenSize, miniBatch);
-    vector<vector<float>> o_t_linear = sum_Wx_Rh_b(input_t, h_tminus1, hiddenSize, miniBatch);
-    vector<vector<float>> g_t_linear = sum_Wx_Rh_b(input_t, h_tminus1, hiddenSize, miniBatch);
+    bool is_efficient = false;
+    vector<vector<float>> i_t_linear = sum_Wx_Rh_b(input_t, h_tminus1, hiddenSize, miniBatch, is_efficient);
+    vector<vector<float>> f_t_linear = sum_Wx_Rh_b(input_t, h_tminus1, hiddenSize, miniBatch, is_efficient);
+    vector<vector<float>> o_t_linear = sum_Wx_Rh_b(input_t, h_tminus1, hiddenSize, miniBatch, is_efficient);
+    vector<vector<float>> g_t_linear = sum_Wx_Rh_b(input_t, h_tminus1, hiddenSize, miniBatch, is_efficient);
 
     vector<vector<float>> i_t = matSigma(i_t_linear);
     vector<vector<float>> f_t = matSigma(f_t_linear);
     vector<vector<float>> o_t = matSigma(o_t_linear);
     vector<vector<float>> g_t = matTanh(g_t_linear);
+
+    vector<vector<float>> temp_fOc = matMulElement(f_t, c_tminus1);
+    vector<vector<float>> temp_iOg = matMulElement(i_t, g_t);
+    vector<vector<float>> c_t = matSum(temp_iOg, temp_fOc);
+    vector<vector<float>> tanh_c_t = matTanh(c_t);
+    vector<vector<float>> h_t = matMulElement(o_t, tanh_c_t);
+
+    c_tminus1 = c_t;
+    h_tminus1 = h_t;
+}
+
+void extract_ifog(vector<vector<float>>& ifog, vector<vector<float>>& i_t, vector<vector<float>>& f_t, vector<vector<float>>& o_t, vector<vector<float>>& g_t)
+{
+    for (int i =0; i < (ifog.size()/4); ++i){
+        for (int j = 0; j < ifog[0].size(); ++j){
+                i_t[i][j] = ifog[i][j];
+        }
+    }
+    
+    for (int i =0; i < (ifog.size()/4); ++i){
+        for (int j = 0; j < ifog[0].size(); ++j){
+                f_t[i][j] = ifog[i+ (ifog.size()/4) ][j];
+        }
+    }
+    
+    for (int i =0; i < (ifog.size()/4); ++i){
+        for (int j = 0; j < ifog[0].size(); ++j){
+                o_t[i][j] = ifog[i + (2*(ifog.size()/4)) ][j];
+        }
+    }
+    
+    for (int i =0; i < (ifog.size()/4); ++i){
+        for (int j = 0; j < ifog[0].size(); ++j){
+                g_t[i][j] = ifog[i + (3*(ifog.size()/4)) ][j];
+        }
+    }
+}
+
+
+void nextHiddenStateEfficient(vector<vector<float>>& input_t, vector<vector<float>>& h_tminus1, vector<vector<float>>& c_tminus1,int hiddenSize, int miniBatch)
+{
+    bool is_efficient = true;
+    //dimension of ifog is now 2048.
+    vector<vector<float>> ifog_t_linear = sum_Wx_Rh_b(input_t, h_tminus1, hiddenSize, miniBatch, is_efficient);
+
+    vector<vector<float>> ifog_t = matSigmaTanh(ifog_t_linear);
+    vector<vector<float>> i_t(hiddenSize, vector<float>(miniBatch)), f_t(hiddenSize, vector<float>(miniBatch)), o_t(hiddenSize, vector<float>(miniBatch)), g_t(hiddenSize, vector<float>(miniBatch));
+
+    extract_ifog(ifog_t, i_t, f_t, o_t, g_t);
 
     vector<vector<float>> temp_fOc = matMulElement(f_t, c_tminus1);
     vector<vector<float>> temp_iOg = matMulElement(i_t, g_t);
@@ -209,7 +292,7 @@ double lstmNaive(int hiddenSize, int miniBatch, int seqLength, int numLayers, in
     gettimeofday(&t2, 0);
 
 	double elapsedTime = (t2.tv_usec-t1.tv_usec);
-	printf("Time for the run number %d :  %.8f us \n\n", numRun, elapsedTime);
+	printf("Time for the run number NAIVE %d :  %.8f ms \n\n", numRun, elapsedTime/1000);
 
     return elapsedTime;
 }
@@ -227,13 +310,13 @@ double lstmNaiveEfficient(int hiddenSize, int miniBatch, int seqLength, int numL
 	randMat(h_tminus1, range);
 	randMat(c_tminus1, range);
     for (int i = 0; i < seqLength; ++i){
-        nextHiddenState(input_t, h_tminus1, c_tminus1, hiddenSize, miniBatch);
+        nextHiddenStateEfficient(input_t, h_tminus1, c_tminus1, hiddenSize, miniBatch);
     }
 	
     gettimeofday(&t2, 0);
 
 	double elapsedTime = (t2.tv_usec-t1.tv_usec);
-	printf("Time for the run number %d :  %.8f us \n\n", numRun, elapsedTime);
+	printf("Time for the run number NAIVE EFFICIENT %d :  %.8f ms \n\n", numRun, elapsedTime/1000);
 
     return elapsedTime;
 }
@@ -267,12 +350,19 @@ int main(int argc, char* argv[])
 	}
 
 
-	double totalTime = 0.f;
+	double naiveTime = 0.f;
 	for (int run = 0; run < numRuns; run++) {
-		totalTime += lstmNaive(hiddenSize, miniBatch, seqLength, numLayers, run);
+		naiveTime += lstmNaive(hiddenSize, miniBatch, seqLength, numLayers, run);
 	}
 
-	printf("Average Runtime for LSTM naive is %.8fms\n", totalTime / numRuns);
+	printf("Average Runtime for LSTM NAIVE is %.8f ms \n\n",  naiveTime / (numRuns*1000));
+	
+    double naiveEffTime = 0.f;
+	for (int run = 0; run < numRuns; run++) {
+		naiveEffTime += lstmNaiveEfficient(hiddenSize, miniBatch, seqLength, numLayers, run);
+	}
+
+	printf("Average Runtime for LSTM NAIVE EFFICIENT is %.8f ms\n\n", naiveEffTime / (numRuns*1000));
 
     return 0;
 }
