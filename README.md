@@ -1,5 +1,5 @@
 # Optimizing-LSTMs-on-GPU
-Implementation of the paper "Optimizing Performance of Recurrent Neural Networks on GPUs" in CUDA and OpenMP.
+Implementation of the [paper](https://arxiv.org/abs/1604.01946) "Optimizing Performance of Recurrent Neural Networks on GPUs" in CUDA and OpenMP.
 
 The naming of the CPP files has been done in accordance with this NVIDIA [blog](https://devblogs.nvidia.com/optimizing-recurrent-neural-networks-cudnn-5/#disqus_thread). For example, `LSTM_opti_4.cpp` corresponds to `Optimization 4: Pre-Transposing the Weight Matrix`. 
  
