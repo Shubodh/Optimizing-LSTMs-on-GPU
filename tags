@@ -4,24 +4,84 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
-extract_ifog	naive-LSTM.cpp	/^void extract_ifog(vector<vector<float>>& ifog, vector<vector<float>>& i, vector<vector<float>>& f, vector<vector<float>>& o, vector<vector<float>>& g)$/;"	f
+extract_ifog	LSTM_opti_1.cpp	/^void extract_ifog(vector<vector<float> >& ifog, vector<vector<float> >& i_t, vector<vector<float> >& f_t, vector<vector<float> >& o_t, vector<vector<float> >& g_t)$/;"	f
+extract_ifog	LSTM_opti_2.cpp	/^void extract_ifog(vector<vector<float> >& ifog, vector<vector<float> >& i_t, vector<vector<float> >& f_t, vector<vector<float> >& o_t, vector<vector<float> >& g_t)$/;"	f
+extract_ifog	naive-LSTM.cpp	/^void extract_ifog(vector<vector<float>>& ifog, vector<vector<float>>& i_t, vector<vector<float>>& f_t, vector<vector<float>>& o_t, vector<vector<float>>& g_t)$/;"	f
+lstmNaive	LSTM_naive.cpp	/^double lstmNaive(int hiddenSize, int miniBatch, int seqLength, int numLayers, int numRun) {$/;"	f
+lstmNaive	LSTM_opti_4_final.cpp	/^double lstmNaive(int hiddenSize, int miniBatch, int seqLength, int numLayers, int numRun) {$/;"	f
 lstmNaive	naive-LSTM.cpp	/^double lstmNaive(int hiddenSize, int miniBatch, int seqLength, int numLayers, int numRun) $/;"	f
+lstmNaiveEfficient	LSTM_opti_1.cpp	/^double lstmNaiveEfficient(int hiddenSize, int miniBatch, int seqLength, int numLayers, int numRun) $/;"	f
+lstmNaiveEfficient	LSTM_opti_2.cpp	/^double lstmNaiveEfficient(int hiddenSize, int miniBatch, int seqLength, int numLayers, int numRun) $/;"	f
+lstmNaiveEfficient	LSTM_opti_3.cpp	/^double lstmNaiveEfficient(int hiddenSize, int miniBatch, int seqLength, int numLayers, int numRun) $/;"	f
+lstmNaiveEfficient	LSTM_opti_4.cpp	/^double lstmNaiveEfficient(int hiddenSize, int miniBatch, int seqLength, int numLayers, int numRun) $/;"	f
 lstmNaiveEfficient	naive-LSTM.cpp	/^double lstmNaiveEfficient(int hiddenSize, int miniBatch, int seqLength, int numLayers, int numRun) $/;"	f
+main	LSTM_naive.cpp	/^int main(int argc, char* argv[]){$/;"	f
+main	LSTM_opti_1.cpp	/^int main(int argc, char* argv[])$/;"	f
+main	LSTM_opti_2.cpp	/^int main(int argc, char* argv[])$/;"	f
+main	LSTM_opti_3.cpp	/^int main(int argc, char* argv[])$/;"	f
+main	LSTM_opti_4.cpp	/^int main(int argc, char* argv[])$/;"	f
+main	LSTM_opti_4_final.cpp	/^int main(int argc, char* argv[]){$/;"	f
 main	naive-LSTM.cpp	/^int main(int argc, char* argv[])$/;"	f
 main	samply.cpp	/^int main(){$/;"	f
+matDim	LSTM_naive.cpp	/^vector<vector<float> > matDim(int rows_a, int cols_a){$/;"	f
+matDim	LSTM_opti_1.cpp	/^vector<vector<float> > matDim(int rows_a, int cols_a)$/;"	f
+matDim	LSTM_opti_2.cpp	/^vector<vector<float> > matDim(int rows_a, int cols_a)$/;"	f
+matDim	LSTM_opti_3.cpp	/^vector<vector<float> > matDim(int rows_a, int cols_a)$/;"	f
+matDim	LSTM_opti_4.cpp	/^vector<vector<float> > matDim(int rows_a, int cols_a)$/;"	f
+matDim	LSTM_opti_4_final.cpp	/^vector<vector<float> > matDim(int rows_a, int cols_a){$/;"	f
 matDim	naive-LSTM.cpp	/^vector<vector<float>> matDim(int rows_a, int cols_a)$/;"	f
+matMul	LSTM_naive.cpp	/^vector<vector<float> > matMul(vector<vector<float> >& mat1, vector<vector<float> >& mat2){$/;"	f
+matMul	LSTM_opti_1.cpp	/^vector<vector<float> > matMul(vector<vector<float> >& mat1, vector<vector<float> >& mat2)$/;"	f
 matMul	naive-LSTM.cpp	/^vector<vector<float>> matMul(vector<vector<float>>& mat1, vector<vector<float>>& mat2)$/;"	f
+matMulElement	LSTM_naive.cpp	/^vector<vector<float> > matMulElement(vector<vector<float> >& mat1, vector<vector<float> >& mat2){$/;"	f
+matMulElement	LSTM_opti_1.cpp	/^vector<vector<float> > matMulElement(vector<vector<float> >& mat1, vector<vector<float> >& mat2)$/;"	f
+matMulElement	LSTM_opti_2.cpp	/^vector<vector<float> > matMulElement(vector<vector<float> >& mat1, vector<vector<float> >& mat2)$/;"	f
+matMulElement	LSTM_opti_4_final.cpp	/^vector<vector<float> > matMulElement(vector<vector<float> >& mat1, vector<vector<float> >& mat2){$/;"	f
 matMulElement	naive-LSTM.cpp	/^vector<vector<float>> matMulElement(vector<vector<float>>& mat1, vector<vector<float>>& mat2)$/;"	f
+matSigma	LSTM_naive.cpp	/^vector<vector<float> > matSigma(vector<vector<float> >& mat1){$/;"	f
+matSigma	LSTM_opti_1.cpp	/^vector<vector<float> > matSigma(vector<vector<float> >& mat1)$/;"	f
+matSigma	LSTM_opti_2.cpp	/^vector<vector<float> > matSigma(vector<vector<float> >& mat1)$/;"	f
+matSigma	LSTM_opti_4_final.cpp	/^vector<vector<float> > matSigma(vector<vector<float> >& mat1){$/;"	f
 matSigma	naive-LSTM.cpp	/^vector<vector<float>> matSigma(vector<vector<float>>& mat1)$/;"	f
+matSigmaTanh	LSTM_opti_1.cpp	/^vector<vector<float> > matSigmaTanh(vector<vector<float> >& mat1)$/;"	f
+matSigmaTanh	LSTM_opti_2.cpp	/^vector<vector<float> > matSigmaTanh(vector<vector<float> >& mat1)$/;"	f
 matSigmaTanh	naive-LSTM.cpp	/^vector<vector<float>> matSigmaTanh(vector<vector<float>>& mat1)$/;"	f
+matSum	LSTM_naive.cpp	/^vector<vector<float> > matSum(vector<vector<float> >& mat1, vector<vector<float> >& mat2){$/;"	f
+matSum	LSTM_opti_1.cpp	/^vector<vector<float> > matSum(vector<vector<float> >& mat1, vector<vector<float> >& mat2)$/;"	f
+matSum	LSTM_opti_2.cpp	/^vector<vector<float> > matSum(vector<vector<float> >& mat1, vector<vector<float> >& mat2)$/;"	f
+matSum	LSTM_opti_4_final.cpp	/^vector<vector<float> > matSum(vector<vector<float> >& mat1, vector<vector<float> >& mat2){$/;"	f
 matSum	naive-LSTM.cpp	/^vector<vector<float>> matSum(vector<vector<float>>& mat1, vector<vector<float>>& mat2)$/;"	f
+matTanh	LSTM_naive.cpp	/^vector<vector<float> > matTanh(vector<vector<float> >& mat1){$/;"	f
+matTanh	LSTM_opti_1.cpp	/^vector<vector<float> > matTanh(vector<vector<float> >& mat1)$/;"	f
+matTanh	LSTM_opti_2.cpp	/^vector<vector<float> > matTanh(vector<vector<float> >& mat1)$/;"	f
+matTanh	LSTM_opti_4_final.cpp	/^vector<vector<float> > matTanh(vector<vector<float> >& mat1){$/;"	f
 matTanh	naive-LSTM.cpp	/^vector<vector<float>> matTanh(vector<vector<float>>& mat1)$/;"	f
+matVecMul	LSTM_naive.cpp	/^vector<float> matVecMul(vector<vector<float> >& mat, vector<float>& vect){$/;"	f
 matVecMul	naive-LSTM.cpp	/^vector<float> matVecMul(vector<vector<float>>& mat, vector<float>& vect)$/;"	f
+nextHiddenState	LSTM_naive.cpp	/^void nextHiddenState(vector<vector<float> >& input_t, vector<vector<float> >& h_tminus1, vector<vector<float> >& c_tminus1,int hiddenSize, int miniBatch){$/;"	f
+nextHiddenState	LSTM_opti_4_final.cpp	/^void nextHiddenState(vector<vector<float> >& input_t, vector<vector<float> >& h_tminus1, vector<vector<float> >& c_tminus1,int hiddenSize, int miniBatch, vector<vector<float> > W_i, vector<vector<float> > W_f, vector<vector<float> > W_o, vector<vector<float> > W_g, vector<vector<float> > R_i, vector<vector<float> > R_f, vector<vector<float> > R_o, vector<vector<float> > R_g){$/;"	f
 nextHiddenState	naive-LSTM.cpp	/^void nextHiddenState(vector<vector<float>>& input_t, vector<vector<float>>& h_tminus1, vector<vector<float>>& c_tminus1,int hiddenSize, int miniBatch)$/;"	f
+nextHiddenStateEfficient	LSTM_opti_1.cpp	/^void nextHiddenStateEfficient(vector<vector<float> >& input_t, vector<vector<float> >& h_tminus1, vector<vector<float> >& c_tminus1,int hiddenSize, int miniBatch)$/;"	f
+nextHiddenStateEfficient	LSTM_opti_2.cpp	/^void nextHiddenStateEfficient(vector<vector<float> >& input_t, vector<vector<float> >& h_tminus1, vector<vector<float> >& c_tminus1,int hiddenSize, int miniBatch)$/;"	f
+nextHiddenStateEfficient	LSTM_opti_3.cpp	/^void nextHiddenStateEfficient(vector<vector<float> >& input_t, vector<vector<float> >& h_tminus1, vector<vector<float> >& c_tminus1,int hiddenSize, int miniBatch)$/;"	f
+nextHiddenStateEfficient	LSTM_opti_4.cpp	/^void nextHiddenStateEfficient(vector<vector<float> >& input_t, vector<vector<float> >& h_tminus1, vector<vector<float> >& c_tminus1,int hiddenSize, int miniBatch)$/;"	f
 nextHiddenStateEfficient	naive-LSTM.cpp	/^void nextHiddenStateEfficient(vector<vector<float>>& input_t, vector<vector<float>>& h_tminus1, vector<vector<float>>& c_tminus1,int hiddenSize, int miniBatch)$/;"	f
 printMatrix	naive-LSTM.cpp	/^void printMatrix(vector<vector<float>>& mat)$/;"	f
 printVector	naive-LSTM.cpp	/^void printVector(vector<float>& mat)$/;"	f
+productMatDim	LSTM_naive.cpp	/^vector<vector<float> > productMatDim(int rows_a, int cols_a, int rows_b, int cols_b){$/;"	f
 productMatDim	naive-LSTM.cpp	/^vector<vector<float>> productMatDim(int rows_a, int cols_a, int rows_b, int cols_b)$/;"	f
+randMat	LSTM_naive.cpp	/^void randMat(vector<vector<float> >& mat, int range){$/;"	f
+randMat	LSTM_opti_1.cpp	/^void randMat(vector<vector<float> >& mat, int range)$/;"	f
+randMat	LSTM_opti_2.cpp	/^void randMat(vector<vector<float> >& mat, int range)$/;"	f
+randMat	LSTM_opti_3.cpp	/^void randMat(vector<vector<float> >& mat, int range)$/;"	f
+randMat	LSTM_opti_4.cpp	/^void randMat(vector<vector<float> >& mat, int range)$/;"	f
+randMat	LSTM_opti_4_final.cpp	/^void randMat(vector<vector<float> >& mat, int range){$/;"	f
 randMat	naive-LSTM.cpp	/^void randMat(vector<vector<float>>& mat, int range)$/;"	f
 randVec	naive-LSTM.cpp	/^void randVec(vector<float>& vec, int range)$/;"	f
+sum_Wx_Rh_b	LSTM_naive.cpp	/^vector<vector<float> > sum_Wx_Rh_b(vector<vector<float> > input_t, vector<vector<float> > h_tminus1, int hiddenSize, int miniBatch){$/;"	f
+sum_Wx_Rh_b	LSTM_opti_1.cpp	/^vector<vector<float> > sum_Wx_Rh_b(vector<vector<float> > input_t, vector<vector<float> > h_tminus1, int hiddenSize, int miniBatch)$/;"	f
+sum_Wx_Rh_b	LSTM_opti_2.cpp	/^vector<vector<float> > sum_Wx_Rh_b(vector<vector<float> > input_t, vector<vector<float> > h_tminus1, int hiddenSize, int miniBatch)$/;"	f
+sum_Wx_Rh_b	LSTM_opti_4_final.cpp	/^vector<vector<float> > sum_Wx_Rh_b(vector<vector<float> > input_t, vector<vector<float> > h_tminus1, int hiddenSize, int miniBatch, vector<vector<float> > W, vector<vector<float> > R){$/;"	f
 sum_Wx_Rh_b	naive-LSTM.cpp	/^vector<vector<float>> sum_Wx_Rh_b(vector<vector<float>> input_t, vector<vector<float>> h_tminus1, int hiddenSize, int miniBatch, bool is_efficient)$/;"	f
+transpose	LSTM_opti_4.cpp	/^vector<vector<float> > transpose(vector<vector<float> >& A) {$/;"	f
+transpose	LSTM_opti_4_final.cpp	/^vector<vector<float> > transpose(vector<vector<float> >& A) {$/;"	f
